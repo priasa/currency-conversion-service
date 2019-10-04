@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 //@FeignClient(name = "currency-exchange-service")
 //@RibbonClient(name = "currency-exchange-service")
-@FeignClient(contextId = "currencyExchangeServiceClient", name = "currency-zuul-gateway-server")
+@FeignClient(contextId = "currencyExchangeServiceClient", name = "currency-gateway-server")
 public interface CurrencyExchangeServiceProxy {
 
 //    @GetMapping("/currency-exchange/from/{from}/to/{to}")
@@ -17,6 +17,6 @@ public interface CurrencyExchangeServiceProxy {
     CurrencyConverterEntity retrieveExchangeValue(@PathVariable("from") String from,
                                                   @PathVariable("to") String to);
 
-    @GetMapping("/currency-limits-service/limits")
+    @GetMapping("/currency-limit-service/limits")
     LimitConfigurationValue retrieveLimitConfiguration();
 }
